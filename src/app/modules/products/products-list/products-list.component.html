@@ -1,0 +1,96 @@
+<mat-spinner class="spinner" *ngIf="isLoading" color="accent"></mat-spinner>
+
+<div class="flex mt-4" id="top">
+  <div class="w-16 mr-36 pl-8 max-md:mr-16 max-md:pl-4">
+    <form>
+      <h1 class="pt-8 ps-2">Categories</h1>
+      <mat-radio-group aria-label="Select an option">
+        <mat-radio-button
+          [checked]="true"
+          (change)="setStateSelectedCategory('all')"
+          value="all"
+        >
+          All Products
+        </mat-radio-button>
+        <mat-radio-button
+          (change)="setStateSelectedCategory(category)"
+          *ngFor="let category of categories"
+          [value]="category"
+          >{{ category | uppercase }}</mat-radio-button
+        >
+      </mat-radio-group>
+    </form>
+    <div>
+      <h1 class="pt-4 ps-2">Price</h1>
+      <mat-slider min="1" max="300" step="1" discrete color="accent">
+        <input [(ngModel)]="selectedpriceMin" matSliderStartThumb />
+        <input [(ngModel)]="selectedpriceMax" matSliderEndThumb />
+      </mat-slider>
+
+      <button
+        (click)="setPriceFilter()"
+        class="font-medium bg-transparent hover:text-white hover:bg-[#850066] hover:border-transparent text-[#aa0088] border-2 border-[#aa0088] mt-1 py-4 px-6 rounded-xl"
+      >
+        Apply
+      </button>
+    </div>
+  </div>
+  <div
+    class="grid grid-cols-5 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 rounded-lg mx-7 max-md:mx-2"
+  >
+    <div
+      *ngFor="
+        let product of products
+          | paginate
+            : {
+                itemsPerPage: tableSize,
+                currentPage: page,
+                totalItems: count
+              }
+      "
+      class="my-6 mx-6 border border-gray-100 rounded-lg shadow-lg shadow-gray-300"
+    >
+      <a class="group block relative overflow-hidden">
+        <img
+          (click)="setSelectedProduct(product.id)"
+          src="{{ product.image_url }}"
+          [routerLink]="['/products/details']"
+          class="h-48 w-full object-contain bg-white transition duration-500 group-hover:scale-105 sm:h-48 cursor-pointer"
+        />
+
+        <div class="relative border border-gray-100 bg-white p-4">
+          <h3
+            class="mt-2 text-lg font-medium text-gray-900 text-center h-14 overflow-clip"
+          >
+            {{ product.name }}
+          </h3>
+          <div class="flex justify-center mb-4">
+            <img class="w-4" src="/assets/star.svg" />
+            <img class="w-4" src="/assets/star.svg" />
+            <img class="w-4" src="/assets/star.svg" />
+            <img class="w-4" src="/assets/star.svg" />
+          </div>
+          <p class="text-sm text-gray-700 text-center">E£{{ product.price }}</p>
+
+          <form class="mt-2 flex">
+            <button
+              (click)="addProductToCart(product)"
+              class="block w-full rounded bg-[#aa0082] p-4 text-sm text-white font-medium transition hover:scale-105"
+            >
+              Add to Cart
+            </button>
+          </form>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="mt-4 ml-4" *ngIf="!isLoading">
+  <pagination-controls
+    previousLabel="Prev"
+    nextLabel="Next"
+    (pageChange)="onPageChange($event)"
+  >
+  </pagination-controls>
+</div>

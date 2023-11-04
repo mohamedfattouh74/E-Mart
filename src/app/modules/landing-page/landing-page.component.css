@@ -1,0 +1,29 @@
+.carousel-1,
+.carousel-2,
+.carousel-3 {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+  border-radius: 20px;
+  margin: 10px 80px;
+}
+
+@media only screen and (max-width: 600px) {
+  .carousel-1,
+  .carousel-2,
+  .carousel-3 {
+    height: 300px;
+    margin: 10px 10px;
+  }
+}
+
+.carousel-1 {
+  background-image: url("/assets/berries.jpg");
+}
+.carousel-2 {
+  background-image: url("/assets/groceries.jpg");
+}
+.carousel-3 {
+  background-image: url("/assets/wood.jpg");
+}

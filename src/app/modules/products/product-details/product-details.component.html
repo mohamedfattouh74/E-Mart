@@ -1,0 +1,59 @@
+<button
+  routerLink="/products"
+  class="bg-[#aa0082] hover:bg-[#850066] text-white ms-24 mt-4 py-4 px-6 rounded-xl ml-2 mb-6 max-md:ms-8 max-md:mt-8 shadow-xl shadow-gray-200"
+>
+  &larr; Products
+</button>
+<section
+  class="border border-gray-100 mx-24 max-md:mx-8 shadow-xl shadow-gray-200 bg-white rounded-md"
+>
+  <div class="mx-auto max-w-screen-xl px-4 py-2 sm:px-6 sm:py-4 lg:px-4">
+    <div class="mt-8 grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-12">
+      <div
+        class="relative h-12 max-md:h-24 overflow-hidden sm:h-80 lg:h-38 mt-8"
+      >
+        <img
+          alt="Product"
+          src="{{ selectedProduct.image_url }}"
+          class="absolute inset-0 h-full w-full object-contain"
+        />
+      </div>
+
+      <div class="lg:py-16">
+        <article class="space-y-4 text-gray-600">
+          <p class="text-2xl font-bold">
+            {{ selectedProduct.name }}
+          </p>
+          <div class="flex mb-4">
+            <img class="w-4" src="/assets/star.svg" />
+            <img class="w-4" src="/assets/star.svg" />
+            <img class="w-4" src="/assets/star.svg" />
+            <img class="w-4" src="/assets/star.svg" />
+          </div>
+
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor quos
+            iusto doloribus ullam autem reprehenderit vero a ad quaerat
+            laboriosam eaque optio harum tempore nostrum explicabo fugit
+            repellat, magni quia.
+          </p>
+
+          <p>E£{{ selectedProduct.price }}</p>
+
+          <p>
+            Category: <span>{{ selectedProduct.category | uppercase }}</span>
+          </p>
+
+          <form class="mt-8">
+            <button
+              (click)="addProductToCart(selectedProduct)"
+              class="block w-full rounded text-white bg-[#aa0082] p-4 text-sm font-medium transition hover:scale-105 mt-12"
+            >
+              Add to Cart
+            </button>
+          </form>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>

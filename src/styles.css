@@ -1,0 +1,50 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+html,
+body {
+  height: 100%;
+  background-color: #f9f9f9;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #aa0082;
+}
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 2px rgb(212, 212, 212);
+  border-radius: 5px;
+}
+
+/* Leaflet Map dark mode */
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(95%) hue-rotate(45deg) brightness(95%) contrast(90%) !important;
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: rgb(236, 236, 236);
+  color: #333;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.4);
+}
+
+.ngx-pagination {
+  padding-bottom: 2rem !important;
+  text-align: center;
+}
+.ngx-pagination .current {
+  background: #aa0082 !important;
+}

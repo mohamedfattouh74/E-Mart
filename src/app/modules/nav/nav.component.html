@@ -1,0 +1,121 @@
+<div class="bg-[#aa0082] grid grid-cols-3 h-8 max-md:h-12">
+  <div class="flex space-x-3 ml-4">
+    <img
+      matTooltip="Follow us on Facebook"
+      [matTooltipPosition]="'below'"
+      class="w-4"
+      src="/assets/facebook-white.svg"
+    />
+    <img
+      matTooltip="Follow us on Instagram"
+      [matTooltipPosition]="'below'"
+      class="w-4"
+      src="/assets/instagram-white.svg"
+    />
+    <img
+      matTooltip="Follow us on Twitter"
+      [matTooltipPosition]="'below'"
+      class="w-4"
+      src="/assets/twitter-white.svg"
+    />
+  </div>
+
+  <p
+    class="text-white text-center font-medium pt-1 max-md:text-xs tracking-wide"
+  >
+    Free Shipping on orders above 200 EGP
+  </p>
+  <p
+    class="text-white text-right pe-4 max-md:pe-2 font-medium pt-1 max-md:text-xs tracking-wider"
+  >
+    Need help? Call Us: +971482123
+  </p>
+</div>
+
+<div class="bg-[#f2f3f4] flex justify-between">
+  <div class="flex cursor-pointer" routerLink="">
+    <img class="w-10 ml-6 max-md:w-10" src="/assets/shopping-bag-logo.svg" />
+    <p class="text-2xl pt-10 pl-2 font-sans text-[#aa0082] max-md:hidden">
+      E-MART
+    </p>
+  </div>
+
+  <div class="mt-6 ml-32 flex max-md:ml-8">
+    <form [formGroup]="productsForm" (ngSubmit)="onSubmitSearch()">
+      <mat-form-field>
+        <mat-label>Search Products</mat-label>
+        <input
+          matInput
+          [matAutocomplete]="auto"
+          formControlName="selectedProduct"
+        />
+        <mat-autocomplete #auto>
+          <mat-option
+            (click)="onSubmitSearch()"
+            *ngFor="let option of filterOptions | async"
+            [value]="option.id"
+            >{{ option.name }}</mat-option
+          >
+        </mat-autocomplete>
+      </mat-form-field>
+      <button
+        type="submit"
+        class="bg-[#aa0082] hover:bg-[#850066] text-white font-medium py-4 align-top px-6 rounded-lg ml-2 mt-2 max-md:hidden"
+      >
+        Search
+      </button>
+    </form>
+  </div>
+
+  <div>
+    <ul class="flex mt-4 max-md:flex-col max-md:m-6">
+      <li class="m-8 max-md:m-0 cursor-pointer" routerLink="/cart">
+        <mat-icon
+          matTooltip="Cart"
+          [matTooltipPosition]="'below'"
+          [matBadge]="cartLength"
+          matBadgeColor="accent"
+          >shopping_cart</mat-icon
+        >
+      </li>
+      <li
+        *ngIf="!isLogged"
+        class="mt-8 mr-8 max-md:mt-2 max-md:mr-0 cursor-pointer"
+        (click)="toggleDropdown()"
+      >
+        <mat-icon matTooltip="Account" [matTooltipPosition]="'below'"
+          >account_circle</mat-icon
+        >
+      </li>
+      <li
+        class="mt-8 mr-8 max-md:mt-2 max-md:mr-0 cursor-pointer"
+        (click)="signOut()"
+        *ngIf="isLogged"
+      >
+        <mat-icon matTooltip="Logout" [matTooltipPosition]="'below'"
+          >exit_to_app</mat-icon
+        >
+      </li>
+    </ul>
+  </div>
+</div>
+<div
+  class="dropdown border border-gray-200 shadow-lg shadow-gray-300 rounded-lg bg-white absolute right-0 hidden"
+>
+  <div class="px-2 block">
+    <button
+      (click)="closeDropDown()"
+      routerLink="auth/login"
+      class="bg-[#aa0082] hover:bg-[#850066] text-white font-medium py-2 px-4 rounded-lg ml-2 my-4"
+    >
+      Sign in
+    </button>
+    <button
+      (click)="closeDropDown()"
+      routerLink="auth/signup"
+      class="bg-[#aa0082] hover:bg-[#850066] text-white font-medium py-2 px-4 rounded-lg ml-2 my-4"
+    >
+      Sign up
+    </button>
+  </div>
+</div>

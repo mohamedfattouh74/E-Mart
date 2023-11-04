@@ -1,0 +1,120 @@
+<p
+  class="text-center text-2xl font-medium pt-4 h-[23%]"
+  *ngIf="cartLength == 0"
+>
+  Your Cart is Empty
+</p>
+<p class="text-center text-2xl font-bold pt-4 pb-2" *ngIf="cartLength != 0">
+  Your Cart ({{ cartLength }} Items)
+</p>
+
+<div
+  class="flex justify-center border-2 border-dashed w-[50%] text-center mx-auto mb-8"
+  *ngIf="cartTotal > 0 && cartTotal < 200"
+>
+  <div
+    class="p-4 flex justify-between max-md:p-0 max-md:py-2 max-md:justify-evenly"
+  >
+    <p
+      class="text-2xl max-md:text-sm max-md:h-8 max-md:pt-0 text-center font-medium text-gray-800 pt-8 pr-2"
+      m
+    >
+      You are E£{{ remainingFreeShipping }} away from Free Shipping
+    </p>
+    <button
+      routerLink="/products"
+      class="font-medium bg-transparent hover:text-white hover:bg-[#850066] hover:border-transparent text-[#aa0088] border-2 border-[#aa0088] ms-2 mt-4 py-2 px-4 rounded-xl"
+    >
+      &larr; Continue Shopping
+    </button>
+  </div>
+</div>
+
+<div
+  class="grid grid-cols-5 max-md:grid-cols-4 mx-44 max-md:mx-4 border-b border-gray-300 mt-8 max-md:space-x-12"
+  *ngIf="cartLength != 0"
+>
+  <p class="text-2xl font-medium max-md:text-lg max-md:text-center">Item</p>
+
+  <p class="text-2xl font-medium pl-4 max-md:hidden">Category</p>
+  <p class="text-2xl font-medium max-md:text-lg max-md:text-center">Quantity</p>
+  <p class="text-2xl font-medium max-md:text-lg max-md:text-center max-md:pl-8">
+    Price
+  </p>
+</div>
+<div
+  *ngFor="let product of cartProducts"
+  class="grid grid-cols-5 max-md:grid-cols-4 justify-around mx-44 max-md:mx-4 mb-4 border-b border-gray-200 h-24 pt-4 max-md:space-x-12"
+>
+  <div class="flex">
+    <img width="100px" height="100px" class="h-16" [src]="product.image_url" />
+    <p
+      class="text-lg max-md:text-sm font-medium text-gray-600 pl-2 overflow-clip h-12 max-md:text-center"
+    >
+      {{ product.name }}
+    </p>
+  </div>
+
+  <p
+    class="text-lg text-gray-600 pl-4 font-medium max-md:hidden max-md:text-sm"
+  >
+    {{ product.category | uppercase }}
+  </p>
+
+  <div class="w-32 max-md:w-24">
+    <label for="Quantity" class="sr-only"> Quantity </label>
+
+    <div
+      class="flex justify-center items-center border border-gray-200 rounded"
+    >
+      <button
+        [ngClass]="product.quantity == 1 ? 'disabled' : ''"
+        (click)="decreaseProductQuantity(product)"
+        type="button"
+        class="bg-[#aa0082] text-gray-50 w-14 max-md:w-8 h-8 leading-10 transition hover:opacity-75 font-semibold m-1 rounded-md pb-1"
+      >
+        &minus;
+      </button>
+
+      <input
+        type="number"
+        id="Quantity"
+        [value]="product.quantity"
+        class="h-10 w-16 max-md:w-8 border-transparent text-center [-moz-appearance:_textfield] sm:text-sm [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+      />
+
+      <button
+        (click)="addProductQuantity(product)"
+        type="button"
+        class="bg-[#aa0082] text-gray-50 w-14 h-8 max-md:w-8 leading-10 transition hover:opacity-75 font-semibold m-1 rounded-md pb-1"
+      >
+        &plus;
+      </button>
+    </div>
+  </div>
+  <p class="text-lg text-gray-600 font-medium max-md:text-center max-md:pl-8">
+    E£{{ product.price }}
+  </p>
+  <button
+    matTooltip="Remove Product From Cart"
+    [matTooltipPosition]="'below'"
+    class="hover:bg-gray-100 w-12 h-12 rounded-full text-gray-500 font-medium"
+    (click)="removeProductFromCart(product)"
+  >
+    <mat-icon>delete_outline</mat-icon>
+  </button>
+</div>
+
+<div
+  *ngIf="cartLength != 0"
+  class="flex justify-between ms-44 max-md:ms-12 mt-12"
+>
+  <p class="text-2xl font-semibold">Total: E£{{ cartTotal }}</p>
+  <button
+    *ngIf="cartLength != 0"
+    routerLink="/checkout"
+    class="bg-[#aa0082] hover:bg-[#850066] text-white py-4 px-6 rounded-xl mr-80 max-md:mr-14 mb-4 shadow-xl shadow-gray-200"
+  >
+    Checkout &rarr;
+  </button>
+</div>

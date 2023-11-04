@@ -1,0 +1,201 @@
+<div class="grid grid-cols-2 mx-24 mt-20 max-md:grid-cols-1" id="top">
+  <img width="500px" src="/assets/Grocery-PNG-Picture.png" />
+  <div class="mt-24 max-md:mt-8">
+    <p class="text-6xl max-md:text-4xl font-medium text-[#aa0082]">
+      Shop for everything you need under one roof.
+    </p>
+    <p
+      class="text-2xl max-md:text-xl font-medium text-gray-800 pt-4 max-md:pt-2"
+    >
+      The online shopping experience you deserve.
+    </p>
+    <div>
+      <ul class="flex">
+        <li>
+          <img class="w-28 cursor-pointer" src="/assets/google-play.svg" />
+        </li>
+        <li class="ml-4">
+          <img class="w-28 cursor-pointer" src="/assets/app-store.svg" />
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="mt-28">
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide>
+      <div class="carousel-1">
+        <p
+          class="text-6xl max-md:text-2xl max-md:pt-12 text-gray-800 w-[40%] pt-40 ps-10 font-medium"
+        >
+          We make ecommerce a breeze.
+        </p>
+
+        <button
+          routerLink="/products"
+          class="bg-[#aa0082] hover:bg-[#850066] text-white ms-10 mt-4 py-4 px-6 rounded-xl ml-2"
+        >
+          Shop Now
+        </button>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="carousel-2">
+        <p
+          class="text-6xl max-md:text-2xl max-md:pt-12 text-gray-800 w-[40%] pt-48 ps-10 font-medium"
+        >
+          Feed your family at best price
+        </p>
+        <p class="text-2xl ps-10 mt-12 text-gray-500 font-medium">
+          Save to 50%
+        </p>
+      </div>
+    </ng-template>
+    <ng-template carouselSlide>
+      <div class="carousel-3">
+        <p
+          class="text-6xl max-md:text-2xl max-md:pt-12 text-gray-800 w-[40%] pt-48 ps-10 font-medium"
+        >
+          The best deals, just a click away.
+        </p>
+        <button
+          routerLink="/products"
+          class="text-white bg-gray-800 hover:bg-gray-200 hover:text-gray-800 hover:border hover:border-gray-700 ms-10 mt-4 py-4 px-6 rounded-xl"
+        >
+          Shop Now
+        </button>
+      </div>
+    </ng-template>
+  </owl-carousel-o>
+</div>
+
+<div class="mt-28 grid grid-cols-3 max-lg:grid-cols-1 bg-[#faeef9]">
+  <div class="col-span-1 pl-32 pt-32 max-md:pl-14">
+    <p class="text-4xl text-[#aa0082]">
+      Discover our <br />
+      <span class="font-semibold text-[#aa0088] text-5xl">Best Sellers</span>
+    </p>
+    <p class="text-[#aa0082] pt-2 font-medium">
+      Whatever your goal - we have a plan to get you there.
+    </p>
+    <button
+      routerLink="/products"
+      class="font-medium bg-transparent hover:text-white hover:bg-[#850066] hover:border-transparent text-[#aa0088] border-2 border-[#aa0088] ms-2 mt-4 py-4 px-6 rounded-xl"
+    >
+      Shop all products
+    </button>
+  </div>
+  <div class="col-span-2 max-md:mx-8 mx-24 pt-4 pb-4">
+    <div
+      class="grid grid-cols-3 max-lg:grid-cols-3 max-md:grid-cols-2 max-sm:grid-cols-1 rounded-lg mx-7"
+    >
+      <div
+        *ngFor="let product of topRatingProducts"
+        class="my-6 mx-6 border border-gray-100 rounded-lg shadow-lg shadow-gray-400 bg-white"
+      >
+        <a class="group block relative overflow-hidden">
+          <img
+            src="{{ product.image_url }}"
+            class="h-48 w-full object-contain bg-white transition duration-500 group-hover:scale-105 sm:h-48 cursor-pointer"
+          />
+
+          <div class="relative border border-gray-100 bg-white p-4">
+            <h3 class="text-lg font-medium text-gray-900 text-center h-14">
+              {{ product.name }}
+            </h3>
+
+            <div class="flex justify-center mb-4">
+              <img class="w-4" src="/assets/star.svg" />
+              <img class="w-4" src="/assets/star.svg" />
+              <img class="w-4" src="/assets/star.svg" />
+              <img class="w-4" src="/assets/star.svg" />
+              <p class="text-center text-gray-500 font-medium pt-3 pl-2">
+                ({{ product.rate }})
+              </p>
+            </div>
+
+            <p class="text-sm text-gray-700 text-center">
+              E£{{ product.price }}
+            </p>
+
+            <form class="mt-2 flex">
+              <a
+                (click)="addProductToCart(product)"
+                class="cursor-pointer block w-full rounded text-center bg-[#aa0082] p-4 text-sm text-white font-medium transition hover:scale-105"
+              >
+                Add to Cart
+              </a>
+            </form>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="bg-[url('/assets/food-background.jpeg')] h-52 mt-36 mb-36">
+  <p
+    class="text-4xl pt-24 pr-64 max-md:text-2xl max-md:pr-0 max-md:pt-28 text-[#aa0088] font-serif cursor-default text-center"
+  >
+    “Where Quality Meets Convenience”
+  </p>
+</div>
+
+<div class="mt-20">
+  <p class="text-4xl text-[#aa0082] text-center font-medium">
+    Find Everything You Need At Affordable Prices.
+  </p>
+  <p class="text-center text-2xl text-gray-800 font-medium">
+    We offer a convient and seamless frocery shopping experience that frees you
+    from <br />
+    the unavoidable chore of heading to the supermarket.
+  </p>
+
+  <div class="mx-12 bg-white mt-12 rounded-lg shadow-lg shadow-gray-100">
+    <p class="text-3xl text-gray-800 font-semibold text-center pt-8 pb-4">
+      Shop With Confidence
+    </p>
+    <div
+      class="grid grid-cols-3 max-lg:grid-cols-2 max-md:grid-cols-1 space-x-4 mx-8"
+    >
+      <div class="bg-[#eed6eb] mb-12 rounded-sm shadow-lg shadow-gray-100">
+        <img class="w-14 mx-auto mb-4 mt-12" src="assets/salad.svg" />
+        <h1 class="text-lg font-medium text-center text-gray-800">
+          Freshness with every order
+        </h1>
+        <p class="text-gray-600 text-center pb-8 px-2">
+          Our bakeries, fruits and vegetables are baked, assembled, and prepared
+          fresh every day.
+        </p>
+      </div>
+      <div class="bg-[#eed6eb] mb-12 rounded-sm shadow-lg shadow-gray-100">
+        <img class="w-12 mx-auto mb-4 mt-12" src="assets/exchange.svg" />
+        <h1 class="text-lg font-medium text-center text-gray-800">
+          Returns and Exchanges
+        </h1>
+        <p class="text-gray-600 text-center pb-8 px-2">
+          Any goods that was bought from our online store can be returned during
+          30 days since purchase date
+        </p>
+      </div>
+      <div class="bg-[#eed6eb] mb-12 rounded-sm shadow-lg shadow-gray-100">
+        <img
+          class="w-12 mx-auto mb-4 mt-12"
+          src="assets/customer-service.svg"
+        />
+        <h1 class="text-lg font-medium text-center text-gray-800">
+          24/7 Support Services
+        </h1>
+        <p class="text-gray-600 text-center pb-8 px-2">
+          Customers can get help and find answers to questions as soon as they
+          come up—24/7 and in real-time.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="h-72 max-lg:mx-16 max-md:mx-8">
+  <app-map></app-map>
+</div>
