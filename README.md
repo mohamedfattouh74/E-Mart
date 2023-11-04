@@ -5,22 +5,22 @@ E-mart is a fully responsive e-commerce website created using Angular Framework 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.3.
 
 ## Tools Used :
-Angular Framework
-NGRX
-Angular Material
-Tailwind CSS
-Leaflet Map library
-JSON Server
-JSON Server Authentication
++ Angular Framework
++ NGRX
++ Angular Material
++ Tailwind CSS
++ Leaflet Map library
++ JSON Server
++ JSON Server Authentication
 
 ## Features:
-Authentication
-Responsiveness
-Filter Products by Category and Price
-Search Products with Auto Complete
-Add/Remove any product To/From Cart
-Change quantity of products from the cart
-Order the products selected
++ Authentication
++ Responsiveness
++ Filter Products by Category and Price
++ Search Products with Auto Complete
++ Add/Remove any product To/From Cart
++ Change quantity of products from the cart
++ Order the products selected
 
 ## Development server
 
