@@ -3568,7 +3568,7 @@
   "users": [
     {
       "email": "mohamedadel@gmail.com",
-      "password": "$2a$10$cz2IURickpi7/sdwFqSJ..ZYs377Wk2U1/d7Ftl9ob4PW/lSF5QbS",
+      "password": "$2a$10$9kwK0RmpUlDjKs0vsEWd/.Fl5CA8287jdpe7r5xKkS4Kwt50N1jva",
       "id": 1
     }
   ],
@@ -3576,13 +3576,13 @@
     {
       "firstName": "Mohamed",
       "lastName": "Adel",
-      "email": "mohamedadelfattouh@gmail.com",
-      "phone": "01143680109",
+      "email": "mohamedadel@gmail.com",
+      "phone": "01143682901",
       "country": "Egypt",
       "city": "Cairo",
       "street": "Zizinia",
       "postcode": "18315",
-      "apartment": "1",
+      "apartment": "7b,1",
       "packagingType": "Without Plastic",
       "paymentType": "delivery",
       "cardNumber": "",
@@ -3590,27 +3590,27 @@
       "cvv": "",
       "products": [
         {
+          "id": 27,
+          "image_url": "https://nest-ecommerce-xaca.onrender.com/img/Fruits/Strawberry Box - فراولة.jpg",
+          "price": 80,
+          "name": "Strawberry",
+          "category": "fruits",
+          "quantity": 2
+        },
+        {
           "id": 1,
           "image_url": "https://nest-ecommerce-xaca.onrender.com/img/vegetables/Cucumber - خيار.webp",
           "price": 10,
           "name": "Cucumber",
           "category": "vegetables",
-          "quantity": 1
+          "quantity": 3
         },
         {
-          "id": 2,
-          "image_url": "https://nest-ecommerce-xaca.onrender.com/img/vegetables/Beetroot - شمندر أحمر.webp",
-          "price": 20,
-          "name": "Beetroot",
-          "category": "vegetables",
-          "quantity": 2
-        },
-        {
-          "id": 4,
-          "image_url": "https://nest-ecommerce-xaca.onrender.com/img/vegetables/Cored Eggplant - باذنجان محفور.webp",
-          "price": 30,
-          "name": "Cored Eggplant",
-          "category": "vegetables",
+          "id": 430,
+          "image_url": "https://nest-ecommerce-xaca.onrender.com/img/Sweets -Snacks/Abu Auf Protein Bar Cocoa Coffee Chocolate, 70 Gm.jpg",
+          "price": 60,
+          "name": "Abu Auf Protein Bar Cocoa Coffee Chocolate, 70 Gm",
+          "category": "snacks",
           "quantity": 2
         }
       ],

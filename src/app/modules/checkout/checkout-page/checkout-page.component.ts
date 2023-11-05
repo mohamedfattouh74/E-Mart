@@ -4,7 +4,6 @@ import {
   removeFromCart,
   returnInitialState,
 } from 'src/app/store/cart/cart.actions';
-import { cartReducer } from 'src/app/store/cart/cart.reducers';
 import { getCart, getCartTotal } from 'src/app/store/cart/cart.selectors';
 import { productsModel } from 'src/app/store/products/products.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -12,7 +11,6 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { countries } from './countries-options';
 import { OrderService } from 'src/app/services/order/order.service';
-import { getUser } from 'src/app/store/auth/auth.selectors';
 
 @Component({
   selector: 'app-checkout-page',

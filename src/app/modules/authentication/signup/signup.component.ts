@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from 'src/app/services/auth/auth.service';
-import { ToastrService } from 'ngx-toastr';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { createAccount } from 'src/app/store/auth/auth.actions';
+
 @Component({
   selector: 'app-signup',
   templateUrl: './signup.component.html',

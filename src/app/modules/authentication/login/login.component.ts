@@ -1,11 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { ToastrService } from 'ngx-toastr';
-import { catchError } from 'rxjs';
-import { AuthService } from 'src/app/services/auth/auth.service';
 import { signIn } from 'src/app/store/auth/auth.actions';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',

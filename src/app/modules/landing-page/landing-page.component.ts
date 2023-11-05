@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { ToastrService } from 'ngx-toastr';
+import { getIsLogged } from 'src/app/store/auth/auth.selectors';
 import {
   addQuantity,
   addToCart,
@@ -20,6 +21,7 @@ import { topRatingProductsSelector } from 'src/app/store/products/products.selec
 export class LandingPageComponent {
   topRatingProducts: productsModel[] = [];
   cartProducts: productsModel[] = [];
+  isLogged!: boolean;
 
   constructor(private store: Store, private toastrService: ToastrService) {}
   ngOnInit() {
@@ -32,6 +34,7 @@ export class LandingPageComponent {
     this.store
       .select(getCartSelector)
       .subscribe((res) => (this.cartProducts = res));
+    this.store.select(getIsLogged).subscribe((res) => (this.isLogged = res));
   }
   addProductToCart(selectedProduct: productsModel) {
     let productWithQuantity = { ...selectedProduct, quantity: 1 };
