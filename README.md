@@ -6,7 +6,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Tools Used :
 + Angular Framework
-+ NGRX
++ NGRX State management
 + Angular Material
 + Ngx-ui
 + Tailwind CSS
