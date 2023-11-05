@@ -15,7 +15,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 + JSON Server Authentication
 
 ## Features:
-+ Authentication
++ Authentication + Auth Guards
++ Lazy Loading
 + Responsiveness
 + Pagination
 + Filter Products by Category and Price
