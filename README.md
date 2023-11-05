@@ -8,6 +8,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 + Angular Framework
 + NGRX
 + Angular Material
++ Ngx-ui
 + Tailwind CSS
 + Leaflet Map library
 + JSON Server
