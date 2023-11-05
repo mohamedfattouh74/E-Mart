@@ -17,6 +17,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Features:
 + Authentication
 + Responsiveness
++ Pagination
 + Filter Products by Category and Price
 + Search Products with Auto Complete
 + Add/Remove any product To/From Cart
